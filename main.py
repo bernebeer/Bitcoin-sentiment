@@ -6,6 +6,7 @@ consumer_secret = ''
 access_token = ''
 access_secret = ''
 
+# Get twitter app key credentials from external file
 from dev_settings import *
 
 auth = OAuthHandler(consumer_key, consumer_secret)
@@ -21,9 +22,9 @@ class MyListener(StreamListener):
     def on_data(self, data):
         print(data)
         try:
-            with open('python.json', 'a') as f:
+            with open('bitcoin-tweets.json', 'a') as f:
                 f.write(data)
-                print()
+                # print("printed")
                 return True
         except BaseException as e:
             print(str(e))
@@ -34,4 +35,4 @@ class MyListener(StreamListener):
         return True
 
 twitter_stream = Stream(auth, MyListener())
-twitter_stream.filter(track=['#bitcoin'])
+twitter_stream.filter(track=['litecoin'])
