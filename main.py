@@ -38,4 +38,5 @@ twitter_stream = Stream(auth, MyListener())
 twitter_stream.filter(track=['litecoin'])
 
 # Mijn test comment
+# Mijn tweede test comment
 
